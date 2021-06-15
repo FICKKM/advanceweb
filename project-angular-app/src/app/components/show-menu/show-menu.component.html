@@ -1,1 +1,40 @@
-<p>show-menu works!</p>
+<app-nav-bar></app-nav-bar>
+<div class="container-fluid" style="margin-top:30px">
+    <div class="row">
+        <div class="container">
+            <h2>Menu</h2>
+            <span class="spacer"></span>
+            <button mat-raised-button color="primary">New</button>
+        </div>
+        <div class="col-md-12">
+            <div class="table-responsive-md">
+                <table class="table table-striped table-inverse">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th style="width: 10%;">Image</th>
+                            <th style="width: 10%;">ID.</th>
+                            <th style="width: 20%;">Name</th>
+                            <th style="width: 35%;">Detail</th>
+                            <th style="width: 10%;">Price</th>
+                            <th style="width: 15%;">manage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of products; index as i">
+                            <td><img [src]="item.img" style="height:150px;"></td>
+                            <td scope="row">{{item.id}}</td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.detail}}</td>
+                            <td>{{item.price}}</td>
+                            <td>
+                                <button mat-raised-button color="accent">Edit</button>
+                                <button mat-raised-button color="warn">Delete</button>
+                            </td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
