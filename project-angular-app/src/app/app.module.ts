@@ -20,6 +20,7 @@ import { ShowEmployeeComponent } from './components/show-employee/show-employee.
 import { ShowMenuComponent } from './components/show-menu/show-menu.component';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ShowMemberComponent,
     ShowEmployeeComponent,
     ShowMenuComponent,
-    HomeComponent
+    HomeComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
