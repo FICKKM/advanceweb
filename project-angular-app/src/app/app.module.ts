@@ -12,6 +12,7 @@ import { ShowMemberComponent } from './components/show-member/show-member.compon
 import { ShowEmployeeComponent } from './components/show-employee/show-employee.component';
 import { ShowMenuComponent } from './components/show-menu/show-menu.component';
 import { HomeComponent } from './components/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HomeComponent } from './components/home/home.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    AngularWebStorageModule
+    AngularWebStorageModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
