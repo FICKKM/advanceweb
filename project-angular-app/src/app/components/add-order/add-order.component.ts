@@ -30,6 +30,7 @@ export class AddOrderComponent implements OnInit {
         console.log(data)
         alert('Menu added successfully');
         this.menuForm.reset();
+        window.location.reload();
       },
       err => {
         console.log(err);

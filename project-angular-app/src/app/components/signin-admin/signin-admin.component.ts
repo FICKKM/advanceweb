@@ -26,7 +26,7 @@ export class SigninAdminComponent implements OnInit {
     this.auth.signInAdmin(this.authForm.value).subscribe(
       data => {
         if(data.status == true){
-          this.router.navigate(['/signin-employee']);
+          this.router.navigate(['/show-employee']);
         }else{
           alert('Username or Password is incorrect!');
         }

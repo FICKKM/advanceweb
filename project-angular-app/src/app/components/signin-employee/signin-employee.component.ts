@@ -26,7 +26,7 @@ export class SigninEmployeeComponent implements OnInit {
     this.auth.signInEmployee(this.authForm.value).subscribe(
       data => {
         if(data.status == true){
-          this.router.navigate(['/show-menu']);
+          this.router.navigate(['/home']);
         }else{
           alert('Username or Password is incorrect!');
         }

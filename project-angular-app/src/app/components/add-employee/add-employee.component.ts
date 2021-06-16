@@ -31,6 +31,7 @@ export class AddEmployeeComponent implements OnInit {
         console.log(data)
         alert('Employee added successfully');
         this.employForm.reset();
+        window.location.reload();
       },
       err => {
         console.log(err);
