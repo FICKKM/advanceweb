@@ -27,6 +27,43 @@ try {
     Menu = mongoose.model('menu', menuSchema);
 }
 
+const employeeSchema = Schema({
+    id: String,
+    name: String,
+    username: String,
+    password: String,
+    email: String,
+    tel: Number,
+    file: String,
+    img: String
+}, {
+    collection: 'employee'
+});
+
+let Employee 
+try {
+    Employee = mongoose.model('employee')
+} catch (error) {
+    Employee = mongoose.model('employee', employeeSchema);
+}
+
+const memberSchema = Schema({
+    id: String,
+    name: String,
+    email: String,
+    tel: Number,
+    sum_price: Number
+}, {
+    collection: 'member'
+});
+
+let Member 
+try {
+    Member = mongoose.model('member')
+} catch (error) {
+    Member = mongoose.model('member', memberSchema);
+}
+
 expressApp.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200')
     res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PUT, PATCH, DELETE, OPTIONS')
@@ -46,7 +83,7 @@ expressApp.use((req, res, next) => {
     });
 });
 
-
+//Method for MENU
 const addMenu = (menuData) => {
     return new Promise ((resolve, reject) => {
         var new_menu = new Menu(
@@ -78,7 +115,7 @@ const getMenu = () => {
     });
 }
 
-expressApp.post('/products/add', (req,res)=>{
+expressApp.post('/menus/add', (req,res)=>{
     console.log('add');
     addMenu(req.body)
         .then(result => {
@@ -101,6 +138,63 @@ expressApp.get('/menus/get', (req,res) => {
             console.log(err);
         })
 });
+
+//Method for Member
+const addMember = (memberData) => {
+    return new Promise ((resolve, reject) => {
+        var new_member = new Member(
+            memberData
+        );
+        new_member.save((err, data) => {
+            if(err){
+                reject(new Error('Cannot insert product to DB!'));
+            }else{
+                resolve({message: 'Menu added successfully'});
+            }
+        });
+    }) ;
+}
+
+const getMember = () => {
+    return new Promise ((resolve, reject) => {
+        Member.find({}, (err, data) => {
+            if(err){
+                reject(new Error('Cannot get products!'));
+            }else{
+                if(data){
+                    resolve(data)
+                }else{
+                    reject(new Error('Cannot get products!'));
+                }
+            }
+        })
+    });
+}
+
+expressApp.post('/members/add', (req,res)=>{
+    console.log('add');
+    addMember(req.body)
+        .then(result => {
+            console.log('result');
+            res.status(200).json(result);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+});
+
+expressApp.get('/members/get', (req,res) => {
+    console.log('get');
+    getMember()
+        .then(result => {
+            console.log(result);
+            res.status(200).json(result);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+});
+
 
 expressApp.listen(4400, function(){
     console.log('Listening on port 4400');
