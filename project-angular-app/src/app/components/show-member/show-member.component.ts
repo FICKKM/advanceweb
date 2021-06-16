@@ -29,5 +29,9 @@ export class ShowMemberComponent implements OnInit {
       console.log(error)
     }
   }
-}
 
+  deleteMember(memberItem) {
+    this.mem.deleteMember(memberItem).subscribe()
+    window.location.reload();
+  }
+}

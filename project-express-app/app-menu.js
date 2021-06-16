@@ -118,7 +118,7 @@ const getMenu = () => {
 const delMenu = (menuData) => {
     return new Promise ((resolve, reject) => {
         var query = menuData;
-        Menu.remove(query,(err, data) => {
+        Menu.deleteOne(query,(err, data) => {
             if(err){
                 reject(new Error('Cannot Delete Menu in DB!'));
             }else{
@@ -199,7 +199,7 @@ const getMember = () => {
 const delMember = (memberData) => {
     return new Promise ((resolve, reject) => {
         var query = memberData;
-        Member.remove(query,(err, data) => {
+        Member.deleteOne(query,(err, data) => {
             if(err){
                 reject(new Error('Cannot Delete Member in DB!'));
             }else{
@@ -280,7 +280,7 @@ const getEmployee = () => {
 const delEmployee = (employeeData) => {
     return new Promise ((resolve, reject) => {
         var query = employeeData;
-        Employee.remove(query,(err, data) => {
+        Employee.deleteOne(query,(err, data) => {
             if(err){
                 reject(new Error('Cannot Delete Employee in DB!'));
             }else{

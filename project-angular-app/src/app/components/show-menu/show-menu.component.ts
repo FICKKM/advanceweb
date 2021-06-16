@@ -14,20 +14,24 @@ export class ShowMenuComponent implements OnInit {
     this.onLoading();
   }
 
-  ngOnInit(): void {  }
+  ngOnInit(): void { }
 
-  onLoading(){
+  onLoading() {
     try {
       this.menu.getAllMenu().subscribe(
-        data =>{
+        data => {
           this.menus = data;
         },
         err => {
           console.log(err)
         });
-    }catch(error){
+    } catch (error) {
       console.log(error)
     }
   }
 
+  deleteMenu(menuItem) {
+    this.menu.deleteMenu(menuItem).subscribe()
+    window.location.reload();
+  }
 }

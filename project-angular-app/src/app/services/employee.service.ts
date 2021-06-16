@@ -28,4 +28,9 @@ export class EmployeeService {
         return this.employees;
       }));
   }
+
+  deleteEmployee(employee){
+    return this.http.delete<any>('http://localhost:4400/employees/delete', employee)
+  }
+
 }
