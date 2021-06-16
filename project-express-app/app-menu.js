@@ -64,6 +64,21 @@ try {
     Member = mongoose.model('member', memberSchema);
 }
 
+const billSchema = Schema({
+    id: String,
+    name: String,
+    sum: Number,
+}, {
+    collection: 'bill'
+});
+
+let Bill 
+try {
+    Bill = mongoose.model('bill')
+} catch (error) {
+    Bill = mongoose.model('bill', billSchema);
+}
+
 expressApp.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200')
     res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PUT, PATCH, DELETE, OPTIONS')
@@ -251,6 +266,62 @@ expressApp.get('/employees/get', (req,res) => {
         })
 });
 
+//Method for Bill
+const addBill = (billData) => {
+    return new Promise ((resolve, reject) => {
+        var new_bill = new Bill(
+            billData
+        );
+        new_bill.save((err, data) => {
+            if(err){
+                reject(new Error('Cannot insert bill to DB!'));
+            }else{
+                resolve({message: 'Bill added successfully'});
+            }
+        });
+    }) ;
+}
+
+const getBill = () => {
+    return new Promise ((resolve, reject) => {
+        Bill.find({}, (err, data) => {
+            if(err){
+                reject(new Error('Cannot get bills!'));
+            }else{
+                if(data){
+                    resolve(data)
+                }else{
+                    reject(new Error('Cannot get bills!'));
+                }
+            }
+        })
+    });
+}
+
+expressApp.post('/bills/add', (req,res)=>{
+    console.log('add');
+    console.log(req.body);
+    addBill(req.body)
+        .then(result => {
+            console.log('result');
+            res.status(200).json(result);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+});
+
+expressApp.get('/bills/get', (req,res) => {
+    console.log('get');
+    getBill()
+        .then(result => {
+            console.log(result);
+            res.status(200).json(result);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+});
 
 expressApp.listen(4400, function(){
     console.log('Listening on port 4400');

@@ -25,6 +25,9 @@ import { ShowmenuComponent } from './components/showmenu/showmenu.component';
 import { AddOrderComponent } from './components/add-order/add-order.component';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { AddMemberComponent } from './components/add-member/add-member.component';
+import { BillComponent } from './components/bill/bill.component';
+import { AddbillComponent } from './components/addbill/addbill.component';
+import { ShowbillComponent } from './components/showbill/showbill.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { AddMemberComponent } from './components/add-member/add-member.component
     ShowmenuComponent,
     AddOrderComponent,
     AddEmployeeComponent,
-    AddMemberComponent
+    AddMemberComponent,
+    BillComponent,
+    AddbillComponent,
+    ShowbillComponent
   ],
   imports: [
     BrowserModule,

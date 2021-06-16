@@ -1,0 +1,21 @@
+<h2>Products</h2>
+<div class="table-responsive-md">
+    <table class="table table-striped table-inverse">
+        <thead class="thead-inverse">
+            <tr>
+                <th>ID.</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>{{getCounter()}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of bill; index as i">
+                <td score="row">{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,3 +1,49 @@
+<app-nav-bar></app-nav-bar>
+<form [formGroup]="billForm">
+    <div class="card">
+        <div class="card-header">
+            Bill Form
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-3">
+                    ID:
+                </div>
+                <div class="col-md-9">
+                    <div class="form-group">
+                      <input type="text" class="form-control" formControlName='id'>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Name:
+                </div>
+                <div class="col-md-9">
+                    <div class="form-group">
+                      <input type="text" class="form-control" formControlName='name'>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Price:
+                </div>
+                <div class="col-md-9">
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName='sum'>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-primary" (click)="addBill()">Add</button>&nbsp;
+                    <button type="reset" class="btn btn-danger" (click)="resetForm()">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 <div class="container-fluid" style="margin-top:30px">
     <div class="row">
       <div class="col-md-12">
@@ -11,8 +57,8 @@
                     <th>Detail</th>
                     <th>Price</th>
                     <th>Image</th>
-                    <th>Add/Delete to Order</th>
-                    <th>Show Counter</th>
+                    <th>Add to Order</th>
+                    <th>{{getSumPrice()}}</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,13 +69,10 @@
                     <td>{{item.price}}</td>
                     <td><img [src]="item.img" style="height:150px;"></td>
                     <td>
-                        <button (click)="addOrder(i)"></button>
                         <a class="btn btn-outline-primary" role="button" (click)="addOrder(i)">
                             <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
-                        <a class="btn btn-outline-primary" role="button" >
-                            <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
                     </td>
-                    <td>{{getCounter()}}</td>
+                    <td></td>
                 </tr>
             </tbody>
         </table>

@@ -2,15 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { menuType } from './menu.model';
+import { LocalStorageService } from 'angular-web-storage';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenuService {
 
-  menus: menuType[];
+  menus: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private local: LocalStorageService) { }
 
   /*addProduct(menu){
     return this.http.post<any>('http://localhost:3000/products/add', menu)
@@ -30,7 +31,8 @@ export class MenuService {
       }));
   }
 
-  getSomeMenu(id: number){
+  getSomeMenu(id: any){
     return this.menus[id];
   }
+  
 }

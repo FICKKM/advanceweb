@@ -1,5 +1,5 @@
 interface Menu {
-    id: number,
+    id: string,
     name: string,
     detail:string,
     price: number,
