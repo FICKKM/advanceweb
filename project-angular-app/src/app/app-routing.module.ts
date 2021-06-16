@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: 'showmenu', component: ShowmenuComponent},
   {path: 'add-member', component: AddMemberComponent },
   {path: 'add-employee', component: AddEmployeeComponent },
-  { path: 'add-order', component: AddOrderComponent },
+  { path: 'add-menu', component: AddOrderComponent },
   { path: 'bill', component: BillComponent },
   {path: '', 
     redirectTo: 'signin-employee',

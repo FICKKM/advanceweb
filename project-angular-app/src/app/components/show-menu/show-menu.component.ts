@@ -31,7 +31,7 @@ export class ShowMenuComponent implements OnInit {
   }
 
   deleteMenu(menuItem) {
-    this.menu.deleteMenu(menuItem).subscribe()
+    this.menu.deleteMenu(menuItem.value).subscribe()
     window.location.reload();
   }
 }

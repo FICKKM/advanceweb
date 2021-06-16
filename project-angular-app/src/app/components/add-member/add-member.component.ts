@@ -9,6 +9,7 @@ import { AddMemberService } from '../../services/add-member.service'
 })
 export class AddMemberComponent implements OnInit {
   memberForm = new FormGroup({
+    id: new FormControl(''),
     name: new FormControl(''),
     email: new FormControl(''),
     tel: new FormControl(''),

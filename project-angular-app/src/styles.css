@@ -4,5 +4,9 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 mat-grid-tile {
-    background-image: url(https://cdn.wallpapersafari.com/68/29/SFrsbG.jpg);
+    background-image: url(https://images.hdqwalls.com/download/coffee-beside-coffee-beans-pp-1280x800.jpg);
   }
+
+.mat-raised-button{
+   background: rgb(77, 204, 198);
+}
