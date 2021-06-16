@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from 'src/app/services/menu.service';
 import { OrderService } from 'src/app/services/order.service';
+import { menuType } from 'src/app/services/menu.model';
 
 @Component({
   selector: 'app-showmenu',
@@ -9,9 +10,9 @@ import { OrderService } from 'src/app/services/order.service';
 })
 export class ShowmenuComponent implements OnInit {
 
-  menus: any
+  menus: menuType[]
 
-  constructor(private mn: MenuService, private or: OrderService) { 
+  constructor(private menu: MenuService, private order: OrderService) { 
     this.onLoading();
   }
 
@@ -20,7 +21,7 @@ export class ShowmenuComponent implements OnInit {
 
   onLoading(){
     try {
-      this.mn.getMenu().subscribe(
+      this.menu.getAllMenu().subscribe(
         data => {
           this.menus = data;
         },
@@ -32,10 +33,15 @@ export class ShowmenuComponent implements OnInit {
     }
   }
 
-  add(id: number){
-    this.or.addMenu(id);
+  addOrder(id: number){
+    this.order.add(id);
   }
-  delete(id: number){
-    //this.or.deleteMenu(id);
+
+  getCounter(){
+    return this.order.getCounter();
+  }
+
+  getAllMenu(){
+    return this.menu.getAllMenu();
   }
 }

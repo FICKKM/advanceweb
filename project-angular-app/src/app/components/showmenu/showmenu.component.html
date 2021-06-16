@@ -23,15 +23,13 @@
                     <td>{{item.price}}</td>
                     <td><img [src]="item.img" style="height:150px;"></td>
                     <td>
-                        <button (click)="add(i)" ></button>
-                        <a class="btn btn-outline-primary" role="button" (click)="delete(i)">
+                        <button (click)="addOrder(i)"></button>
+                        <a class="btn btn-outline-primary" role="button" (click)="addOrder(i)">
+                            <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                        <a class="btn btn-outline-primary" role="button" >
                             <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
                     </td>
-                    <td><a href="#" class="btn btn-dark" 
-                        data-toggle="modal" data-target="#myModal">
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart
-                        <span class="badge badge-info"></span>
-                    </a></td>
+                    <td>{{getCounter()}}</td>
                 </tr>
             </tbody>
         </table>

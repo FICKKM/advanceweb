@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { menuType } from './menu.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenuService {
 
-  menus: any;
+  menus: menuType[];
 
   constructor(private http: HttpClient) { }
 
@@ -18,7 +19,7 @@ export class MenuService {
       }));
   }*/
 
-  getMenu(){
+  getAllMenu(){
     return this.http.get<any>('http://localhost:4400/menus/get')
       .pipe(map(data => {
         if(data){
@@ -30,6 +31,6 @@ export class MenuService {
   }
 
   getSomeMenu(id: number){
-    return this.menus(id);
+    return this.menus[id];
   }
 }

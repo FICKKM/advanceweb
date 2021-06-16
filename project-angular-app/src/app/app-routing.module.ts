@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'show-menu', component: ShowMenuComponent},
   {path: 'signin-admin', component: SigninAdminComponent},
   {path: 'signin-employee', component: SigninEmployeeComponent},
-  {path: 'show-menu', component: ShowmenuComponent},
+  {path: 'showmenu', component: ShowmenuComponent},
   {path: 'add-member', component: AddMemberComponent },
   {path: 'add-employee', component: AddEmployeeComponent },
   { path: 'add-order', component: AddOrderComponent },

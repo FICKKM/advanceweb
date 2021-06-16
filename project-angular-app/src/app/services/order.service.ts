@@ -11,24 +11,20 @@ export class OrderService {
   sumPrice: number = 0;
   bill: menuType = [];
 
-  constructor(private mn: MenuService) { }
+  constructor(private menu: MenuService) { }
 
   add(id: number){
-    console.log('Add product id: '+id+' to cart');
-    this.bill.push(this.mn.menus(id));
-    this.sumPrice += this.mn.getSomeMenu(id).price;
-    //this.counter = this.cart.length;
+    console.log('Add menu id: '+id+' to order');
+    this.bill.push(this.menu.getSomeMenu[id]);
+    this.sumPrice += this.menu.getSomeMenu[id].price;
+    //this.counter = this.bill.length;
+    this.counter += 1;
     //this.counter += 1 --> ข้อ2
   }
 
   addMenu(id: number){
-    this.counter += 1;
+    //this.counter += 1;
   }
-
-  /*deleteMenu(counter: number = this.addMenu()){
-    counter -= 1;
-    return counter;
-  }*/
 
   getCounter(){
     return this.counter;
