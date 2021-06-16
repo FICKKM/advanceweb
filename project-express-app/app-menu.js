@@ -33,7 +33,7 @@ const employeeSchema = Schema({
     username: String,
     password: String,
     email: String,
-    tel: Number,
+    tel: String,
     file: String,
     img: String
 }, {
@@ -51,7 +51,7 @@ const memberSchema = Schema({
     id: String,
     name: String,
     email: String,
-    tel: Number,
+    tel: String,
     sum_price: Number
 }, {
     collection: 'member'
