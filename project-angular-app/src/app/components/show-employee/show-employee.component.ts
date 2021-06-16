@@ -29,4 +29,8 @@ export class ShowEmployeeComponent implements OnInit {
       console.log(error)
     }
   }
+
+  deleteEmployee(empItem) {
+    this.emp.deleteEmployee(empItem).subscribe()
+  }
 }

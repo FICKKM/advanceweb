@@ -27,4 +27,8 @@ export class AddMemberService {
       }));
   }
 
+  deleteMember(member){
+    return this.http.delete<any>('http://localhost:4400/members/delete', member)
+  }
+
 }

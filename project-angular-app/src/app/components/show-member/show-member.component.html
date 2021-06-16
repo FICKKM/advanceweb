@@ -28,7 +28,7 @@
                             <td>{{item.sum_price}}</td>
                             <td>
                                 <button mat-raised-button color="accent">Edit</button>
-                                <button mat-raised-button color="warn">Delete</button>
+                                <button mat-raised-button color="warn" (click)="deleteMember(item)">Delete</button>
                             </td>
                         </tr>
                     </tbody>

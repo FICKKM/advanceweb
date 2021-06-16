@@ -13,12 +13,12 @@ export class MenuService {
 
   constructor(private http: HttpClient, private local: LocalStorageService) { }
 
-  /*addProduct(menu){
-    return this.http.post<any>('http://localhost:3000/products/add', menu)
+  addMenu(menu){
+    return this.http.post<any>('http://localhost:4400/menus/add', menu)
       .pipe(map(data => {
         return data;
       }));
-  }*/
+  }
 
   getAllMenu(){
     return this.http.get<any>('http://localhost:4400/menus/get')
@@ -34,5 +34,13 @@ export class MenuService {
   getSomeMenu(id: any){
     return this.menus[id];
   }
+<<<<<<< HEAD
   
+=======
+
+  deleteMenu(menu){
+    console.log(menu)
+    return this.http.delete<any>('http://localhost:4400/menus/delete', menu)
+  }
+>>>>>>> 11358bd038ee32ecbd9d6ad4a15ddfeabd588986
 }
