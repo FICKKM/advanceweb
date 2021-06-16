@@ -195,6 +195,62 @@ expressApp.get('/members/get', (req,res) => {
         })
 });
 
+//Method for Employee
+const addEmployee = (employeeData) => {
+    return new Promise ((resolve, reject) => {
+        var new_employee = new Employee(
+            employeeData
+        );
+        new_employee.save((err, data) => {
+            if(err){
+                reject(new Error('Cannot insert product to DB!'));
+            }else{
+                resolve({message: 'Menu added successfully'});
+            }
+        });
+    }) ;
+}
+
+const getEmployee = () => {
+    return new Promise ((resolve, reject) => {
+        Employee.find({}, (err, data) => {
+            if(err){
+                reject(new Error('Cannot get products!'));
+            }else{
+                if(data){
+                    resolve(data)
+                }else{
+                    reject(new Error('Cannot get products!'));
+                }
+            }
+        })
+    });
+}
+
+expressApp.post('/employees/add', (req,res)=>{
+    console.log('add');
+    addEmployee(req.body)
+        .then(result => {
+            console.log('result');
+            res.status(200).json(result);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+});
+
+expressApp.get('/employees/get', (req,res) => {
+    console.log('get');
+    getEmployee()
+        .then(result => {
+            console.log(result);
+            res.status(200).json(result);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+});
+
 
 expressApp.listen(4400, function(){
     console.log('Listening on port 4400');
