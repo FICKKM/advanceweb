@@ -10,6 +10,7 @@ import { MenuService } from '../../services/menu.service'
 export class AddOrderComponent implements OnInit {
 
   menuForm = new FormGroup({
+    id: new FormControl('', [Validators.required]),
     name: new FormControl('', [Validators.required]),
     detail: new FormControl('', [Validators.required]),
     price: new FormControl('', [Validators.required]),
