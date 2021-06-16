@@ -91,7 +91,7 @@ const addMenu = (menuData) => {
         );
         new_menu.save((err, data) => {
             if(err){
-                reject(new Error('Cannot insert product to DB!'));
+                reject(new Error('Cannot insert Menu to DB!'));
             }else{
                 resolve({message: 'Menu added successfully'});
             }
@@ -103,16 +103,29 @@ const getMenu = () => {
     return new Promise ((resolve, reject) => {
         Menu.find({}, (err, data) => {
             if(err){
-                reject(new Error('Cannot get products!'));
+                reject(new Error('Cannot get Menus!'));
             }else{
                 if(data){
                     resolve(data)
                 }else{
-                    reject(new Error('Cannot get products!'));
+                    reject(new Error('Cannot get menus!'));
                 }
             }
         })
     });
+}
+
+const delMenu = (menuData) => {
+    return new Promise ((resolve, reject) => {
+        var query = menuData;
+        Menu.remove(query,(err, data) => {
+            if(err){
+                reject(new Error('Cannot Delete Menu in DB!'));
+            }else{
+                resolve({message: 'Menu delete successfully'});
+            }
+        });
+    }) ;
 }
 
 expressApp.post('/menus/add', (req,res)=>{
@@ -139,6 +152,18 @@ expressApp.get('/menus/get', (req,res) => {
         })
 });
 
+expressApp.delete('/menus/delete', (req,res)=>{
+    console.log('delete');
+    delMenu(req.body)
+        .then(result => {
+            console.log('result');
+            res.status(200).json(result);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+});
+
 //Method for Member
 const addMember = (memberData) => {
     return new Promise ((resolve, reject) => {
@@ -147,9 +172,9 @@ const addMember = (memberData) => {
         );
         new_member.save((err, data) => {
             if(err){
-                reject(new Error('Cannot insert product to DB!'));
+                reject(new Error('Cannot insert member to DB!'));
             }else{
-                resolve({message: 'Menu added successfully'});
+                resolve({message: 'Member added successfully'});
             }
         });
     }) ;
@@ -159,16 +184,29 @@ const getMember = () => {
     return new Promise ((resolve, reject) => {
         Member.find({}, (err, data) => {
             if(err){
-                reject(new Error('Cannot get products!'));
+                reject(new Error('Cannot get members!'));
             }else{
                 if(data){
                     resolve(data)
                 }else{
-                    reject(new Error('Cannot get products!'));
+                    reject(new Error('Cannot get members!'));
                 }
             }
         })
     });
+}
+
+const delMember = (memberData) => {
+    return new Promise ((resolve, reject) => {
+        var query = memberData;
+        Member.remove(query,(err, data) => {
+            if(err){
+                reject(new Error('Cannot Delete Member in DB!'));
+            }else{
+                resolve({message: 'Member delete successfully'});
+            }
+        });
+    }) ;
 }
 
 expressApp.post('/members/add', (req,res)=>{
@@ -195,6 +233,18 @@ expressApp.get('/members/get', (req,res) => {
         })
 });
 
+expressApp.delete('/members/delete', (req,res)=>{
+    console.log('delete');
+    delMember(req.body)
+        .then(result => {
+            console.log('result');
+            res.status(200).json(result);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+});
+
 //Method for Employee
 const addEmployee = (employeeData) => {
     return new Promise ((resolve, reject) => {
@@ -203,9 +253,9 @@ const addEmployee = (employeeData) => {
         );
         new_employee.save((err, data) => {
             if(err){
-                reject(new Error('Cannot insert product to DB!'));
+                reject(new Error('Cannot insert Employee to DB!'));
             }else{
-                resolve({message: 'Menu added successfully'});
+                resolve({message: 'Employee added successfully'});
             }
         });
     }) ;
@@ -215,16 +265,29 @@ const getEmployee = () => {
     return new Promise ((resolve, reject) => {
         Employee.find({}, (err, data) => {
             if(err){
-                reject(new Error('Cannot get products!'));
+                reject(new Error('Cannot get Employees!'));
             }else{
                 if(data){
                     resolve(data)
                 }else{
-                    reject(new Error('Cannot get products!'));
+                    reject(new Error('Cannot get Employees!'));
                 }
             }
         })
     });
+}
+
+const delEmployee = (employeeData) => {
+    return new Promise ((resolve, reject) => {
+        var query = employeeData;
+        Employee.remove(query,(err, data) => {
+            if(err){
+                reject(new Error('Cannot Delete Employee in DB!'));
+            }else{
+                resolve({message: 'Employee Delete successfully'});
+            }
+        });
+    }) ;
 }
 
 expressApp.post('/employees/add', (req,res)=>{
@@ -251,6 +314,17 @@ expressApp.get('/employees/get', (req,res) => {
         })
 });
 
+expressApp.delete('/employees/delete', (req,res)=>{
+    console.log('delete');
+    delEmployee(req.body)
+        .then(result => {
+            console.log('result');
+            res.status(200).json(result);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+});
 
 expressApp.listen(4400, function(){
     console.log('Listening on port 4400');
