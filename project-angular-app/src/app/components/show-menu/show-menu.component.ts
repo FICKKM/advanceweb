@@ -19,11 +19,7 @@ export class ShowMenuComponent implements OnInit {
   onLoading() {
     try {
       this.menu.getAllMenu().subscribe(
-<<<<<<< HEAD
-        data =>{
-=======
         data => {
->>>>>>> 11358bd038ee32ecbd9d6ad4a15ddfeabd588986
           this.menus = data;
         },
         err => {

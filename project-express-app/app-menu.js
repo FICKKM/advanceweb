@@ -329,7 +329,6 @@ expressApp.get('/employees/get', (req,res) => {
         })
 });
 
-<<<<<<< HEAD
 //Method for Bill
 const addBill = (billData) => {
     return new Promise ((resolve, reject) => {
@@ -366,11 +365,18 @@ expressApp.post('/bills/add', (req,res)=>{
     console.log('add');
     console.log(req.body);
     addBill(req.body)
-=======
+    .then(result => {
+        console.log('result');
+        res.status(200).json(result);
+    })
+    .catch(err => {
+        console.log(err);
+    })
+});
+
 expressApp.delete('/employees/delete', (req,res)=>{
     console.log('delete');
     delEmployee(req.body)
->>>>>>> 11358bd038ee32ecbd9d6ad4a15ddfeabd588986
         .then(result => {
             console.log('result');
             res.status(200).json(result);
@@ -379,7 +385,6 @@ expressApp.delete('/employees/delete', (req,res)=>{
             console.log(err);
         })
 });
-<<<<<<< HEAD
 
 expressApp.get('/bills/get', (req,res) => {
     console.log('get');
@@ -392,8 +397,6 @@ expressApp.get('/bills/get', (req,res) => {
             console.log(err);
         })
 });
-=======
->>>>>>> 11358bd038ee32ecbd9d6ad4a15ddfeabd588986
 
 expressApp.listen(4400, function(){
     console.log('Listening on port 4400');

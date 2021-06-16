@@ -34,13 +34,8 @@ export class MenuService {
   getSomeMenu(id: any){
     return this.menus[id];
   }
-<<<<<<< HEAD
-  
-=======
-
   deleteMenu(menu){
     console.log(menu)
     return this.http.delete<any>('http://localhost:4400/menus/delete', menu)
   }
->>>>>>> 11358bd038ee32ecbd9d6ad4a15ddfeabd588986
 }
