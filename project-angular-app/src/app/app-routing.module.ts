@@ -11,6 +11,7 @@ import { AddMemberComponent } from './components/add-member/add-member.component
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { AddOrderComponent } from './components/add-order/add-order.component';
 import { BillComponent } from './components/bill/bill.component';
+import { ShowbillComponent } from './components/showbill/showbill.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'add-employee', component: AddEmployeeComponent },
   { path: 'add-menu', component: AddOrderComponent },
   { path: 'bill', component: BillComponent },
+  { path: 'show-bill', component: ShowbillComponent },
   {path: '', 
     redirectTo: 'signin-employee',
     pathMatch: 'full'

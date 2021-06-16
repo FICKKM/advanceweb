@@ -1,1 +1,30 @@
-<p>showbill works!</p>
+<app-nav-bar></app-nav-bar>
+<div class="container-fluid" style="margin-top:30px">
+    <div class="row">
+        <div class="container">
+            <h2>Bill</h2>
+            <span class="spacer"></span>
+        </div>
+        <div class="col-md-15">
+            <div class="table-responsive-md">
+                <table class="table table-striped table-inverse">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th style="width:10%;">ID.</th>
+                            <th style="width:20%;">Name</th>
+                            <th style="width:20%;">Sum</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of bills; index as i">
+                            <td scope="row">{{item.id}}</td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.sum}}</td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
