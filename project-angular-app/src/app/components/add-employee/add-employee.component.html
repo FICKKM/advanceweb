@@ -5,7 +5,7 @@
 
       </div>
       <div class="col-md-5">
-        <form [formGroup]="productForm">
+        <form [formGroup]="employForm">
           <div class="card">
             <div class="card-header" >
                Employee Registration
@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-md-9">
                   <div class="form-group">
-                    <img *ngIf="previewLoaded" class="img-thumbnail" [src]="this.productForm.value.img"
+                    <img *ngIf="previewLoaded" class="img-thumbnail" [src]="this.employForm.value.img"
                     style="height:150px;">
                     <input type="file" class="form-control-file" formControlName='file' (change)="onChangeImg($event)">
                   </div>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-md-9">
                   <div class="form-group">
-                    <input type="number" class="form-control" formControlName='price'>
+                    <input type="text" class="form-control" formControlName='id'>
                   </div>
                 </div>
               </div>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="col-md-9">
                   <div class="form-group">
-                    <input type="text" class="form-control"  formControlName='detail'>
+                    <input type="text" class="form-control"  formControlName='email'>
                   </div>
                 </div>
               </div>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="col-md-9">
                   <div class="form-group">
-                    <input type="text" class="form-control" formControlName='name'>
+                    <input type="text" class="form-control" formControlName='username'>
                   </div>
                 </div>
               </div>
@@ -73,7 +73,7 @@
                 </div>
                 <div class="col-md-9">
                   <div class="form-group">
-                    <input type="text" class="form-control" formControlName='name'>
+                    <input type="text" class="form-control" formControlName='password'>
                   </div>
                 </div>
               </div>
@@ -84,15 +84,15 @@
                 </div>
                 <div class="col-md-9">
                   <div class="form-group">
-                    <input type="number" class="form-control" formControlName='price'>
+                    <input type="text" class="form-control" formControlName='tel'>
                   </div>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-md-9">
-                  <button type="button" class="btn btn-primary" (click)="addProduct()">Register</button>&nbsp;
-                  <button type="reset" class="btn btn-danger" (click)="resetForm()">Cancle</button>
+                  <button type="button" class="btn btn-primary" (click)="addEmployee()">Register</button>&nbsp;
+                  <button type="reset" class="btn btn-danger" (click)="resetForm()">Reset</button>
                 </div>
               </div>
             </div>

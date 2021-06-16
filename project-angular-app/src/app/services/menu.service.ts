@@ -12,12 +12,12 @@ export class MenuService {
 
   constructor(private http: HttpClient) { }
 
-  /*addProduct(menu){
-    return this.http.post<any>('http://localhost:3000/products/add', menu)
+  addMenu(menu){
+    return this.http.post<any>('http://localhost:4400/menus/add', menu)
       .pipe(map(data => {
         return data;
       }));
-  }*/
+  }
 
   getAllMenu(){
     return this.http.get<any>('http://localhost:4400/menus/get')
