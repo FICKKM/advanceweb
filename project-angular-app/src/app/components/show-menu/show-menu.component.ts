@@ -18,7 +18,7 @@ export class ShowMenuComponent implements OnInit {
 
   onLoading(){
     try {
-      this.menu.getMenu().subscribe(
+      this.menu.getAllMenu().subscribe(
         data =>{
           this.menus = data;
         },
