@@ -6,16 +6,18 @@ import { ShowMemberComponent } from './components/show-member/show-member.compon
 import { ShowMenuComponent } from './components/show-menu/show-menu.component';
 import { SigninAdminComponent } from './components/signin-admin/signin-admin.component';
 import { SigninEmployeeComponent } from './components/signin-employee/signin-employee.component';
+import { ShowmenuComponent } from './components/showmenu/showmenu.component';
 
 const routes: Routes = [
-  {path: 'signin', component: SigninAdminComponent},
-  {path: 'signin', component: SigninEmployeeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'show-employee', component: ShowEmployeeComponent},
   {path: 'show-member', component: ShowMemberComponent},
   {path: 'show-menu', component: ShowMenuComponent},
+  {path: 'signin-admin', component: SigninAdminComponent},
+  {path: 'signin-employee', component: SigninEmployeeComponent},
+  {path: 'show-menu', component: ShowmenuComponent},
   {path: '', 
-    redirectTo: 'signin',
+    redirectTo: 'signin-employee',
     pathMatch: 'full'
   },
 ];

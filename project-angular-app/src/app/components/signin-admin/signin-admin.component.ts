@@ -15,7 +15,7 @@ export class SigninAdminComponent implements OnInit {
     password: new FormControl(''),
   });
 
-  constructor(private router: Router,private auth: AuthService) { }
+  constructor(private router: Router, private auth: AuthService) { }
 
   ngOnInit(): void {
 
@@ -23,10 +23,10 @@ export class SigninAdminComponent implements OnInit {
 
   signinAdmin(){
     console.log(this.authForm.value);
-    this.auth.signIn(this.authForm.value).subscribe(
+    this.auth.signInAdmin(this.authForm.value).subscribe(
       data => {
         if(data.status == true){
-          this.router.navigate(['/products']);
+          this.router.navigate(['/signin-employee']);
         }else{
           alert('Username or Password is incorrect!');
         }

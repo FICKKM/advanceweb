@@ -1,31 +1,59 @@
-<div class="container" style="margin-top: 60px;">
+<style>
+    .button {
+      border: true;
+      color: white;
+      padding: 12px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    
+    .button1 {
+    background-color: white;
+    color: #ff1b67;
+    border: 2px solid #ff1b67;
+    }
+
+    .button1:hover {
+    background-color: #ff1b67;
+    color: white;
+    }
+</style>
+<mat-grid-list cols="1" rows="1" rowHeight="680px">
+    <mat-grid-tile>
+<div class="container" style="margin-top: 0px;">
     <div class="row">
         <div class="col-md-3">
 
         </div>
         <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    Sign In
+            <div class="card" style="border: 2px solid #000000; ">
+                <div class="card-header" style="background-color: #c9c9c9; height: 50px; font-size: 25px; padding: 15px 20px;">
+                    Admin
                 </div> 
                 <form [formGroup]="authForm">
-                    <div class="card-body">
+                    <div class="card-body" style="background-color: #ffffff; padding: 25px 20px;">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="">Username</label>
-                                    <input type="text" class="form-control" formControlName="username">
+                                    <label for="" style="padding: 12px 0px; font-size: 20px;">Username :</label>
+                                    <input type="text" style="background-color: #ffffff; border: 1px solid #999999;" class="form-control" formControlName="username">
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Password</label>
-                                    <input type="password" class="form-control" formControlName="password">
+                                    <label for="" style="padding: 12px 0px; font-size: 20px;">Password :</label>
+                                    <input type="password" style="background-color: #ffffff; border: 1px solid #999999;" class="form-control" formControlName="password">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <button type="button" class="btn btn-primary" (click)="signinAdmin()">Sign in</button>&nbsp;
-                                <button type="button" class="btn btn-info">Sign up</button>
+                                <br>                         
+                                    <div class="example-button-row" style="padding: 10px 0px;">
+                                        <button class="button button1" (click)="signinAdmin()"><u>Sign In</u></button>
+                                    </div>                                 
                             </div>
                         </div>
                     </div>
@@ -37,3 +65,5 @@
         </div>
     </div>
 </div>
+</mat-grid-tile>
+</mat-grid-list>

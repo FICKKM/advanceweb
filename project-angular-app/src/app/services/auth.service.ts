@@ -10,12 +10,23 @@ export class AuthService {
 
   constructor(private http: HttpClient, public local: LocalStorageService) { }
 
-  signIn(authData: any){
-    return this.http.post<any>('http://localhost:3000/login/signin', authData)
+  signInAdmin(authData: any){
+    return this.http.post<any>('http://localhost:3000/signin-admin/signin-admin', authData)
       .pipe(map(data => {
         if(data){
-          this.local.set('user', data, 1, 'w');
-          console.log(this.local.get('user'));
+          this.local.set('signin', data, 1, 'w');
+          console.log(this.local.get('signin'));
+        }
+        return data;
+      }));
+  }
+
+  signInEmployee(authData: any){
+    return this.http.post<any>('http://localhost:3000/signin-employee/signin-employee', authData)
+      .pipe(map(data => {
+        if(data){
+          this.local.set('signin', data, 1, 'w');
+          console.log(this.local.get('signin'));
         }
         return data;
       }));
