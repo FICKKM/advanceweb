@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { AddMemberService } from '../../services/add-member.service'
@@ -10,11 +9,10 @@ import { AddMemberService } from '../../services/add-member.service'
 })
 export class AddMemberComponent implements OnInit {
   memberForm = new FormGroup({
-    id: new FormControl('', [Validators.required]),
-    name: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required]),
-    tel: new FormControl('', [Validators.required]),
-    sum_price: new FormControl('', [Validators.required]),
+    name: new FormControl(''),
+    email: new FormControl(''),
+    tel: new FormControl(''),
+    sum_price: new FormControl(''),
   });
 
   previewLoaded: boolean = false;
@@ -22,7 +20,7 @@ export class AddMemberComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  addMember() {
+  addMem() {
     this.addmem.addMem(this.memberForm.value).subscribe(
       data => {
         console.log(data)
@@ -34,28 +32,9 @@ export class AddMemberComponent implements OnInit {
       });
   }
 
-  onChangeImg(e: any) {
-    if (e.target.files.length > 0) {
-      const file = e.target.files[0];
-      var pattern = /image-*/;
-      const reader = new FileReader();
-      if (!file.type.match(pattern)) {
-        alert('invalid format');
-        this.memberForm.reset();
-      } else {
-        reader.readAsDataURL(file);
-        reader.onload = () => {
-          this.previewLoaded = true;
-          this.memberForm.patchValue({
-            img: reader.result
-          });
-        };
-      }
-    }
-  }
 
   resetForm() {
-    this.memberForm.reset();
+    this.memberForm.reset(this.memberForm.value);
     this.previewLoaded = false;
   }
 

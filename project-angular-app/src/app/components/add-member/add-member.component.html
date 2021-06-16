@@ -1,24 +1,24 @@
 <app-nav-bar></app-nav-bar>
-<div class="container-fluid" style="margin-top:30px">
+<div class="container-fluid" style="margin-top:50px">
     <div class="row">
       <div class="col-md-4">
 
       </div>
       <div class="col-md-5">
-        <form [formGroup]="productForm">
+        <form [formGroup]="memberForm">
           <div class="card">
             <div class="card-header" >
                Member Registration
             </div>
             <div class="card-body">
               
-                <div class="row">
+              <div class="row">
                 <div class="col-md-3">
-                   ID:
+                  ID:
                 </div>
                 <div class="col-md-9">
                   <div class="form-group">
-                    <input type="number" class="form-control" formControlName='id'>
+                    <input type="text" class="form-control" formControlName='id'>
                   </div>
                 </div>
               </div>
@@ -53,15 +53,26 @@
                 </div>
                 <div class="col-md-9">
                   <div class="form-group">
-                    <input type="number" class="form-control" formControlName='tel'>
+                    <input type="text" class="form-control" formControlName='tel'>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-3">
+                  SumPrice:
+                </div>
+                <div class="col-md-9">
+                  <div class="form-group">
+                    <input type="number" class="form-control" formControlName='sum_price'>
                   </div>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-md-9">
-                  <button type="button" class="btn btn-primary" (click)="addMember()">Register</button>&nbsp;
-                  <button type="reset" class="btn btn-danger" (click)="resetForm()">Cancle</button>
+                  <button type="button" class="btn btn-primary" (click)="addMem()">Register</button>&nbsp;
+                  <button type="reset" class="btn btn-danger" (click)="resetForm()">Reset</button>&nbsp;
                 </div>
               </div>
             </div>
