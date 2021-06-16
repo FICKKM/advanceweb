@@ -7,6 +7,10 @@ import { ShowMenuComponent } from './components/show-menu/show-menu.component';
 import { SigninAdminComponent } from './components/signin-admin/signin-admin.component';
 import { SigninEmployeeComponent } from './components/signin-employee/signin-employee.component';
 import { ShowmenuComponent } from './components/showmenu/showmenu.component';
+import { AddMemberComponent } from './components/add-member/add-member.component';
+import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
+import { AddOrderComponent } from './components/add-order/add-order.component';
+
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -16,6 +20,9 @@ const routes: Routes = [
   {path: 'signin-admin', component: SigninAdminComponent},
   {path: 'signin-employee', component: SigninEmployeeComponent},
   {path: 'show-menu', component: ShowmenuComponent},
+  {path: 'add-member', component: AddMemberComponent },
+  {path: 'add-employee', component: AddEmployeeComponent },
+  { path: 'add-order', component: AddOrderComponent },
   {path: '', 
     redirectTo: 'signin-employee',
     pathMatch: 'full'

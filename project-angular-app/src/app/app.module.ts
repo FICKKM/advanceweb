@@ -22,6 +22,9 @@ import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ShowmenuComponent } from './components/showmenu/showmenu.component';
+import { AddOrderComponent } from './components/add-order/add-order.component';
+import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
+import { AddMemberComponent } from './components/add-member/add-member.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { ShowmenuComponent } from './components/showmenu/showmenu.component';
     ShowMenuComponent,
     HomeComponent,
     NavBarComponent,
-    ShowmenuComponent
+    ShowmenuComponent,
+    AddOrderComponent,
+    AddEmployeeComponent,
+    AddMemberComponent
   ],
   imports: [
     BrowserModule,
